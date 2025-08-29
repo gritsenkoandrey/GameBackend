@@ -47,7 +47,12 @@ public class UserController : ControllerBase
     public IActionResult GetUser(int id)
     {
         User? user = _context.Users.Find(id);
-        if (user == null) return NotFound();
+        
+        if (user == null)
+        {
+            return NotFound();
+        }
+        
         return Ok(user);
     }
 
@@ -55,10 +60,15 @@ public class UserController : ControllerBase
     public IActionResult SaveProgress(int id, [FromBody] User progress)
     {
         User? user = _context.Users.Find(id);
-        if (user == null) return NotFound();
+        
+        if (user == null)
+        {
+            return NotFound();
+        }
 
         user.Level = progress.Level;
         user.Money = progress.Money;
+        
         _context.SaveChanges();
 
         return Ok(user);

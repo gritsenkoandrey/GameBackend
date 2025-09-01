@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GameBackend.Custom;
+namespace GameBackend.Scripts.Data;
 
 public class User
 {
